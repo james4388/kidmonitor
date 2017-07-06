@@ -1,9 +1,7 @@
-import subprocess
 import ctypes
-import os
 
 
-class Monitor(object):
+class Brightness(object):
     iokit = None
     cf = None
     kIOMasterPortDefault = None
