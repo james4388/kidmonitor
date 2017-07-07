@@ -1,4 +1,5 @@
 import ctypes
+import ctypes.util
 
 
 class Brightness(object):
@@ -64,7 +65,7 @@ class Brightness(object):
                     ctypes.byref(level)
                 )
                 self.iokit.IOObjectRelease(iterator)
-        return level
+        return level.value
 
     def set_brightness(self, level=1.0):
         level = ctypes.c_float(level)
