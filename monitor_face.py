@@ -60,16 +60,17 @@ if __name__ == '__main__':
                     maximum_size = area * OFF_THRESHOLD
                 else:
                     if area > maximum_size:
-                        bright = 0
+                        bright = 0.0
                     elif area > original_size:
                         area_percent = area / maximum_size
                         bright = original_bright - (
                             original_bright * area_percent)
                     else:
                         bright = original_bright
-
+                    bright = round(float(bright), 2)
                 if bright != current_bright:
                     current_bright = bright
+                    print 'Brightness', bright
                     screen.set_brightness(current_bright)
                 if DEBUG:
                     print fx, fy, fw, fh
